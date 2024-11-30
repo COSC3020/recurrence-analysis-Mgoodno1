@@ -30,3 +30,19 @@ function mystery(n) {
 Add your answer to this markdown file. [This
 page](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions)
 might help with the notation for mathematical expressions.
+
+Answer: 
+T(n)=a⋅T(n/b)+O(n^d)
+
+In our case:
+    a=3 (since there are 3 recursive calls),
+    b=3 (since the problem size is reduced by a factor of 3),
+    d=5 (the work done by the loops is O(n^5)).
+    
+Now, we calculate log_⁡b(a):
+Log_⁡b(a) = log_⁡3(3)= 1
+
+Next, we compare d (which is 5) with log_⁡b a (which is 1):
+If d > log⁡_b(​a), the solution is O(n^d).
+
+Since 5 > 1, the solution to the recurrence is dominated by the work done in the loops, and the overall complexity is O(n^5).

@@ -32,18 +32,18 @@ page](https://docs.github.com/en/get-started/writing-on-github/working-with-adva
 might help with the notation for mathematical expressions.
 
 Answer: 
+Intial analysis:
 Each recursive call reduces the problem by a factor of 3
 First Loop : n^2
 Second Loop : n
 Third Loop : n^2
-Therefore total work inside loops is: O(n^2 x n x n^2)
-So T(n) = 3T (n/3) + O(n^5)
+Therefore total work inside loops is: n^5
+
+Recurrence Relation:
+T(n) = 3T (n/3) + (n^5)
 Steps:
-T(n) = 3(3T(n/9) + O((n/3)^5)) + O(n^5)
-T(n) = 3^2(T)(n/9) + O(n^5)
-T(n) = 3^3(T)(n/27) + O(n^5)
-T(n) = 3^k(T)(n/3k) + O(n^5)
-T(n) = 3^log3 n(T)(1) + O(n^5)
-T(n) = O(n) + O(n^5)
+3^k(n/3k)^5 = 3^k (n^5/3^5k) = n^5/3^4k
+T(n) = n^5 + n^5/3^4 + n^5/3^8 + ...
+T(N) = n^5 (1 + 1/3^4 + 1/3^8 + ...)
 Final Answer:
-O(n^5) grows much fater than O(n) as n increases, there T(n) = O(n^5)
+T(n) = O(n^5)

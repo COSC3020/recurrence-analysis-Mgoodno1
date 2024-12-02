@@ -32,17 +32,18 @@ page](https://docs.github.com/en/get-started/writing-on-github/working-with-adva
 might help with the notation for mathematical expressions.
 
 Answer: 
-T(n)=a⋅T(n/b)+O(n^d)
-
-In our case:
-    a=3 (since there are 3 recursive calls),
-    b=3 (since the problem size is reduced by a factor of 3),
-    d=5 (the work done by the loops is O(n^5)).
-    
-Now, we calculate log_⁡b(a):
-Log_⁡b(a) = log_⁡3(3)= 1
-
-Next, we compare d (which is 5) with log_⁡b a (which is 1):
-If d > log⁡_b(​a), the solution is O(n^d).
-
-Since 5 > 1, the solution to the recurrence is dominated by the work done in the loops, and the overall complexity is O(n^5).
+Each recursive call reduces the problem by a factor of 3
+First Loop : n^2
+Second Loop : n
+Third Loop : n^2
+Therefore total work inside loops is: O(n^2 x n x n^2)
+So T(n) = 3T (n/3) + O(n^5)
+Steps:
+T(n) = 3(3T(n/9) + O((n/3)^5)) + O(n^5)
+T(n) = 3^2(T)(n/9) + O(n^5)
+T(n) = 3^3(T)(n/27) + O(n^5)
+T(n) = 3^k(T)(n/3k) + O(n^5)
+T(n) = 3^log3 n(T)(1) + O(n^5)
+T(n) = O(n) + O(n^5)
+Final Answer:
+O(n^5) grows much fater than O(n) as n increases, there T(n) = O(n^5)

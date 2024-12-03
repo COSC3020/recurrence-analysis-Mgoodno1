@@ -55,6 +55,7 @@ T(n) = 3^kT(n/3^k) + n^5  $$\left( \sum_{i=0}^k-1 1/3^4i \right)
 when n/3^k = 1. k = log_3 n
  $$\left( \sum_{i=0}^log_3 n-1 1/3^4i \right)
 
+Sum of geometric series converges to a constant value:
  T(n) = nT(1) + n^5 * constant
  T(n) = n^5 * constant
 

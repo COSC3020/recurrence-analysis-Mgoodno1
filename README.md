@@ -41,9 +41,29 @@ Therefore total work inside loops is: n^5
 
 Recurrence Relation:
 T(n) = 3T (n/3) + (n^5)
-Steps:
-3^k(n/3k)^5 = 3^k (n^5/3^5k) = n^5/3^4k
-T(n) = n^5 + n^5/3^4 + n^5/3^8 + ...
-T(N) = n^5 (1 + 1/3^4 + 1/3^8 + ...)
+T(n/3) = 3T(n/9) + (n/3)^5
+T(n) = 9T(n/9) + 3(n^5/3^5) + n^5 (Subsistue T(n/3))
+
+T(n/9) = 3T(n/27) + (n/9)^5
+T(n) = 9(3T(n/27) + (n/9)^5) + 3(n^5/3^5) + n^5 (Subsistue T(n/9))
+T(n) = 27T(n/27) + 9(n^5/9^5) + 3(n^5/ 3^5) + n^5
+
+Pattern emerging, we will use k:
+T(n) = 3^kT(n/3^k) + $$\left( \sum_{i=0}^k-1 3^i \right) * n^5/3^5i
+T(n) = 3^kT(n/3^k) + n^5  $$\left( \sum_{i=0}^k-1 1/3^4i \right)
+
+when n/3^k = 1. k = log_3 n
+ $$\left( \sum_{i=0}^log_3 n-1 1/3^4i \right)
+
+ T(n) = nT(1) + n^5 * constant
+ T(n) = n^5 * constant
+
+
 Final Answer:
 T(n) = O(n^5)
+
+
+Sources:
+https://stackoverflow.com/questions/30201391/how-to-write-a-recurrence-relation-for-a-given-piece-of-code
+ChatGpt for understanding the patterns
+Lecture Notes/Slides

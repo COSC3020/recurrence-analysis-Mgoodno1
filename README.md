@@ -49,15 +49,15 @@ T(n) = 9(3T(n/27) + (n/9)^5) + 3(n^5/3^5) + n^5 (Subsistue T(n/9))
 T(n) = 27T(n/27) + 9(n^5/9^5) + 3(n^5/ 3^5) + n^5
 
 Pattern emerging, we will use k:
-T(n) = 3^kT(n/3^k) + $$\left( \sum_{i=0}^k-1 3^i \right) * n^5/3^5i
+T(n) = 3^kT(n/3^k) + $$\left( \sum_{i=0}^k-1 3^i * (n^5/3^5i) \right)
 
-when n/3^k = 1. k = log_3 n
-$$\left( \sum_{i=0}^log_3 n-1 1/3^4i \right)
+when n/3^k = 1. k = log_3 n. ( n/3^k = 1 => n = 3^k => log_3(n) = k)
+T(n) = 3^log_3(n) T(1) + $$\left( \sum_{i=0}^log_3 n-1 3^i (n^5/3^5i) \right)
+$$\left( \sum_{i=0}^log_3 n-1 3^i (n^5/3^5i) \right)
+$$\left( \sum_{i=0}^log_3 n-1 3^i-5i \right)
+$$\left( \sum_{i=0}^log_3 n-1 3^4i \right) = O(1)
 
-Sum of geometric series converges to a constant value:
- T(n) = nT(1) + n^5 * constant
- T(n) = n^5 * constant
-
+So the work at all levels is dominated by the recursion n = 1 so the overall time complexity is O(n^5)
 
 Final Answer:
 T(n) = O(n^5)

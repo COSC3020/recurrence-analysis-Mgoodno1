@@ -50,10 +50,9 @@ T(n) = 27T(n/27) + 9(n^5/9^5) + 3(n^5/ 3^5) + n^5
 
 Pattern emerging, we will use k:
 T(n) = 3^kT(n/3^k) + $$\left( \sum_{i=0}^k-1 3^i \right) * n^5/3^5i
-T(n) = 3^kT(n/3^k) + n^5  $$\left( \sum_{i=0}^k-1 1/3^4i \right)
 
 when n/3^k = 1. k = log_3 n
- $$\left( \sum_{i=0}^log_3 n-1 1/3^4i \right)
+$$\left( \sum_{i=0}^log_3 n-1 1/3^4i \right)
 
 Sum of geometric series converges to a constant value:
  T(n) = nT(1) + n^5 * constant

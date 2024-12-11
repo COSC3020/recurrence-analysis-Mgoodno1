@@ -48,19 +48,12 @@ T(n/9) = 3T(n/27) + (n/9)^5
 T(n) = 9(3T(n/27) + (n/9)^5) + 3(n^5/3^5) + n^5 (Subsistue T(n/9))
 T(n) = 27T(n/27) + 9(n^5/9^5) + 3(n^5/ 3^5) + n^5
 
-Pattern emerging, we will use k:
-T(n) = 3^kT(n/3^k) + $$\left( \sum_{i=0}^k-1 3^i * (n^5/3^5i) \right)
+T(n) = 3^i (T)(n/3^i) + 3^i(n^5/3^i) + 3^i(n^5/3^i) + n^5
+n/3^i = 1  => i = log3(n)
 
-when n/3^k = 1. k = log_3 n. ( n/3^k = 1 => n = 3^k => log_3(n) = k)
-T(n) = 3^log_3(n) T(1) + $$\left( \sum_{i=0}^log_3 n-1 3^i (n^5/3^5i) \right)
-$$\left( \sum_{i=0}^log_3 n-1 3^i (n^5/3^5i) \right)
-$$\left( \sum_{i=0}^log_3 n-1 3^i-5i \right)
-$$\left( \sum_{i=0}^log_3 n-1 3^4i \right) = O(1)
-
-So the work at all levels is dominated by the recursion n = 1 so the overall time complexity is O(n^5)
-
-Final Answer:
-T(n) = O(n^5)
+T(n)= nT(1)+ $$\left( \sum_{i=0}^log_3 n-1 n^5/3^4i \right)
+​T(n) = nT(1) + n^5
+T(n) ∈ O(n^5)
 
 Sources:
 https://stackoverflow.com/questions/30201391/how-to-write-a-recurrence-relation-for-a-given-piece-of-code
